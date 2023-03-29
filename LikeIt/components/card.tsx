@@ -4,9 +4,9 @@ import Icon from 'react-native-vector-icons/FontAwesome';
 
 interface CardProps {
     image: ImageSourcePropType,
-    id: Number,
+    id: number,
     liked: Boolean,
-    onPicLike: (id: Number) => void
+    onPicLike: (id: number) => void
 }
 
 const Card: FunctionComponent<CardProps> = ({ image, id, liked, onPicLike }): JSX.Element => {

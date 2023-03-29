@@ -7,7 +7,7 @@ import Header from './components/header';
 
 type CardPropType = {
   image: ImageSourcePropType,
-  id: Number,
+  id: number,
   liked: Boolean
 }
 
@@ -40,7 +40,7 @@ class App extends React.Component<IProps, AppState> {
   }
 
 
-  onPicLike = (id: Number) => {
+  onPicLike = (id: number) => {
     this.setState((prevState) => ({
       cards: prevState.cards.map((card) => {
         if (card.id === id) {
@@ -59,7 +59,7 @@ class App extends React.Component<IProps, AppState> {
         <ScrollView style={styles.container}>
           {
             this.state.cards.map(
-              (card) => <Card image={card.image} id={card.id} liked={card.liked} onPicLike={this.onPicLike} />
+              (card) => <Card key={card.id} image={card.image} id={card.id} liked={card.liked} onPicLike={this.onPicLike} />
             )
           }
         </ScrollView>

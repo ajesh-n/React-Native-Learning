@@ -3,7 +3,7 @@ import { StyleSheet, Text, View } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 
 interface HeaderProps {
-    likedCards: Number
+    likedCards: number
 }
 
 const Header: FunctionComponent<HeaderProps> = ({ likedCards }): JSX.Element => {
