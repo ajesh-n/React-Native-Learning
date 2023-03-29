@@ -25,7 +25,16 @@ class App extends React.Component<IProps, AppState> {
       cards: [
         { image: require('./assets/pic_1.jpg'), id: 1, liked: false },
         { image: require('./assets/pic_2.jpg'), id: 2, liked: false },
-        { image: require('./assets/pic_3.jpg'), id: 3, liked: false }
+        { image: require('./assets/pic_3.jpg'), id: 3, liked: false },
+        { image: require('./assets/pic_1.jpg'), id: 4, liked: false },
+        { image: require('./assets/pic_2.jpg'), id: 5, liked: false },
+        { image: require('./assets/pic_3.jpg'), id: 6, liked: false },
+        { image: require('./assets/pic_1.jpg'), id: 7, liked: false },
+        { image: require('./assets/pic_2.jpg'), id: 8, liked: false },
+        { image: require('./assets/pic_3.jpg'), id: 9, liked: false },
+        { image: require('./assets/pic_1.jpg'), id: 10, liked: false },
+        { image: require('./assets/pic_2.jpg'), id: 11, liked: false },
+        { image: require('./assets/pic_3.jpg'), id: 12, liked: false }
       ],
     };
   }
@@ -46,7 +55,7 @@ class App extends React.Component<IProps, AppState> {
   render(): React.ReactNode {
     return (
       <SafeAreaView style={{ backgroundColor: '#C5CAE9', flex: 1 }}>
-        <Header />
+        <Header likedCards={this.state.cards.filter((card) => card.liked).length}/>
         <ScrollView style={styles.container}>
           {
             this.state.cards.map(

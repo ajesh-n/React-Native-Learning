@@ -1,14 +1,18 @@
-import React from 'react';
+import React, { FunctionComponent } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 
-function Header(): JSX.Element {
+interface HeaderProps {
+    likedCards: Number
+}
+
+const Header: FunctionComponent<HeaderProps> = ({ likedCards }): JSX.Element => {
 
     return (
         <View style={styles.header}>
             <Text style={styles.title}>Like It</Text>
             <Icon style={styles.icon} name="heart" size={24} color="red" />
-            <Text style={{ fontSize: 24, marginEnd: 15 }}>2</Text>
+            <Text style={{ fontSize: 24, marginEnd: 15 }}>{likedCards.toString()}</Text>
         </View>
     );
 }
