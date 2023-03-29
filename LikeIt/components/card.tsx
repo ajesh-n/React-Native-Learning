@@ -1,19 +1,24 @@
 import React, { FunctionComponent } from 'react';
-import { Image, ImageSourcePropType, StyleSheet, Text, View } from 'react-native';
+import { Image, ImageSourcePropType, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 
 interface CardProps {
     image: ImageSourcePropType,
+    id: Number,
+    liked: Boolean,
+    onPicLike: (id: Number) => void
 }
 
-const Card : FunctionComponent<CardProps> = ( {image} ): JSX.Element => {
+const Card: FunctionComponent<CardProps> = ({ image, id, liked, onPicLike }): JSX.Element => {
     return (
-        <View style={styles.card}>
+        <View style={styles.card} >
             <Image style={styles.card_image} source={image}></Image>
             <View style={styles.card_footer}>
                 <Text style={{ flex: 1, fontSize: 20 }}>Comment</Text>
-                <Icon style={styles.icon} name="heart" size={20} color="red" />
-                <Text style={{ fontSize: 20 }}>Like</Text>
+                <TouchableOpacity style={{ flexDirection: 'row', alignItems: 'center' }} onPress={() => onPicLike(id)}>
+                    <Icon style={styles.icon} name="heart" size={20} color={liked ? 'red' : 'grey'} />
+                    <Text style={{ fontSize: 20 }}>Like</Text>
+                </TouchableOpacity>
             </View>
         </View>
     );
